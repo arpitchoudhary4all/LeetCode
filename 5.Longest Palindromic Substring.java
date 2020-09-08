@@ -21,8 +21,7 @@ class Solution {
         }
         for (int dist = 2; dist < size; dist++) {
             for (int i = 0; i < size - dist; i++) {
-                isPalindrome[i][i + dist] = isPalindrome[i + 1][i + dist - 1] &&
-                                            s.charAt(i) == s.charAt(i + dist);
+                isPalindrome[i][i + dist] = isPalindrome[i + 1][i + dist - 1] && s.charAt(i) == s.charAt(i + dist);
                 
                 if (isPalindrome[i][i + dist]) {
                     start = i;
