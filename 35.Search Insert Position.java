@@ -5,19 +5,17 @@ You may assume no duplicates in the array.
 */
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int  n = nums.length;
-        if(target<=nums[0]){  
-            return 0;
-        }else if (target>nums[n-1]){
-            return n;
-        }else{    
-            int res = -1;
-            for(int i =0;i<n-1;i++){
-                if(nums[i]<target&& nums[i+1]>=target){
-                    res = i+1;
-                }
-            }
-            return res;
+        int start = -0;
+        int end = nums.length-1;
+        while(start<=end){
+            int middle = start+(end-start)/2;
+            if(target<nums[middle])
+                end = middle-1;
+            else if(target>nums[middle])
+                start = middle+1;
+            else
+                return middle;
         }
+        return start;
     }
 }
